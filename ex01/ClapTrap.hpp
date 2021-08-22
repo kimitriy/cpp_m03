@@ -2,8 +2,8 @@
 # define CLAPTRAP_HPP
 
 # include <iostream>
-# include <cmath>
 # include <string>
+# include <typeinfo>
 
 # define RESET "\033[0m"
 
