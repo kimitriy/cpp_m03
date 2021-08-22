@@ -6,42 +6,31 @@
 class ScavTrap : public ClapTrap
 {
 	private:
-		// std::string	m_name;
-		// int			m_hitpoints;
-		// int			m_energyPoints;
-		// int			m_attackDamage;
 
 	public:
 		//default constructor
 		ScavTrap( void );
 
 		//param constructor
-		ScavTrap( std::string name, int hp, int ep, int ad );
+		ScavTrap( std::string name );
 
 		//copy constructor
-		ScavTrap( const ClapTrap& oher );
+		ScavTrap( const ScavTrap& oher );
 
 		//destructor
 		~ScavTrap( void );
 
 		//[=] operator overload
-		ScavTrap& operator= ( const ClapTrap& other );
-		
-		//setter
-		// void		setEnergyPoints( int ep );
-		// void		setAttackDamage( int ad );
-
-		//getter
-		// std::string	getName( void );
-		// int			getHitPoints( void );
-		// int			getEnergyPoints( void );
-		// int			getAttackDamage( void );
+		ScavTrap& operator= ( const ScavTrap& other );
 
 		//m-methods
-		// void		status( void );
-		// void		attack( std::string const& target );
-		// void		takeDamage( unsigned int amount );
-		// void		beRepaired( unsigned int amount );
+		//overrided
+		void		status( void );
+		void		attack( std::string const& target );
+		void		takeDamage( unsigned int amount );
+		void		beRepaired( unsigned int amount );
+		
+		//new
 		void		guardGate( void );
 };
 

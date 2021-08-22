@@ -10,12 +10,14 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= claptrap
+NAME		= scavtrap
 
 HEADER		= 	ClapTrap.hpp \
+				ScavTrap.hpp \
 
 SRC 		= 	main.cpp \
 				ClapTrap.cpp \
+				ScavTrap.cpp \
 
 OBJS		= ${SRC:.cpp=.o}
 

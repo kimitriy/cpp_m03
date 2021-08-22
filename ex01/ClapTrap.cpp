@@ -30,6 +30,8 @@ ClapTrap::~ClapTrap( void )
 //[=] operator overload
 ClapTrap& ClapTrap::operator= ( const ClapTrap& other )
 {
+	if (this == &other)
+		return ( *this );
 	this->m_name = other.m_name;
 	this->m_hitpoints = other.m_hitpoints;
 	this->m_energyPoints = other.m_energyPoints;
@@ -39,6 +41,17 @@ ClapTrap& ClapTrap::operator= ( const ClapTrap& other )
 }
 
 //setter
+
+void	ClapTrap::setName( std::string name )
+{
+	m_name = name;
+}
+
+void	ClapTrap::setHitPoints( int hp )
+{
+	m_hitpoints = hp;
+}
+
 void	ClapTrap::setEnergyPoints( int ep )
 {
 	m_energyPoints = ep;
@@ -50,22 +63,22 @@ void	ClapTrap::setAttackDamage( int ad )
 }
 
 //getter
-std::string	ClapTrap::getName( void )
+std::string	ClapTrap::getName( void ) const
 {
 	return ( m_name );
 }
 
-int		ClapTrap::getHitPoints( void )
+int		ClapTrap::getHitPoints( void ) const
 {
 	return ( m_hitpoints );
 }
 
-int		ClapTrap::getEnergyPoints( void )
+int		ClapTrap::getEnergyPoints( void ) const
 {
 	return ( m_energyPoints );
 }
 
-int		ClapTrap::getAttackDamage( void )
+int		ClapTrap::getAttackDamage( void ) const
 {
 	return ( m_attackDamage );
 }
@@ -80,7 +93,7 @@ void	ClapTrap::status( void )
 
 void	ClapTrap::attack( std::string const& target )
 {
-	std::cout << F_R_GRN << "ClapTrap " << F_R_PRPL << getName() << F_R_GRN << " attack " << F_R_PRPL << target << F_R_GRN << ", causing " << F_R_PRPL << m_hitpoints << F_R_GRN << " points of damage!" << RESET << std::endl;
+	std::cout << F_R_GRN << "ClapTrap " << F_R_PRPL << getName() << F_R_GRN << " attack " << F_R_PRPL << target << F_R_GRN << ", causing " << F_R_PRPL << getHitPoints() << F_R_GRN << " points of damage!" << RESET << std::endl;
 }
 
 void	ClapTrap::takeDamage( unsigned int amount )

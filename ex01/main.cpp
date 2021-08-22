@@ -1,13 +1,13 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int		main()
 {
-	ClapTrap incognito;
-	ClapTrap joe( "Joe", 2, 10, 0 );
-	ClapTrap joes_bro( joe );
-	ClapTrap bob;
+	ScavTrap incognito;
+	ScavTrap joe( "Joe" );
+	ScavTrap joes_bro( joe );
+	ScavTrap bob;
 
-	bob = ClapTrap( "Bob", 2, 10, 0);
+	bob = ScavTrap( "Bob" );
 	incognito = bob;
 
 	incognito.status();
