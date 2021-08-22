@@ -8,7 +8,8 @@
 class DiamondTrap : public ScavTrap, public FragTrap
 {
 	private:
-
+		std::string	m_name;
+		
 	public:
 		//default constructor
 		DiamondTrap( void );
@@ -26,14 +27,18 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		DiamondTrap& operator= ( const DiamondTrap& other );
 
 		//m-methods
+		
 		//overrided
 		void		status( void );
 		void		attack( std::string const& target );
 		void		takeDamage( unsigned int amount );
 		void		beRepaired( unsigned int amount );
 		
-		//new
+		void		guardGate( void );
 		void		highFivesGuys( void );
+		
+		//new
+		void		whoAmI( void );
 };
 
 #endif
