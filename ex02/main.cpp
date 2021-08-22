@@ -23,7 +23,6 @@ int		main()
 	
 	incognito.status();
 	bob.status();
-
 	bob.highFivesGuys();
 
 	return ( 0 );

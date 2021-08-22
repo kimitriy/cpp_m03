@@ -24,13 +24,6 @@ class FragTrap : public ClapTrap
 		FragTrap& operator= ( const FragTrap& other );
 
 		//m-methods
-		//overrided
-		void		status( void );
-		void		attack( std::string const& target );
-		void		takeDamage( unsigned int amount );
-		void		beRepaired( unsigned int amount );
-		
-		//new
 		void		highFivesGuys( void );
 };
 
