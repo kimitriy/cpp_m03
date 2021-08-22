@@ -2,8 +2,8 @@
 # define CLAPTRAP_HPP
 
 # include <iostream>
-# include <cmath>
 # include <string>
+# include <typeinfo>
 
 # define RESET "\033[0m"
 
@@ -59,14 +59,16 @@ class ClapTrap
 		ClapTrap& operator= ( const ClapTrap& other );
 		
 		//setter
+		void		setName( std::string name );
+		void		setHitPoints( int hp );
 		void		setEnergyPoints( int ep );
 		void		setAttackDamage( int ad );
 
 		//getter
-		std::string	getName( void );
-		int			getHitPoints( void );
-		int			getEnergyPoints( void );
-		int			getAttackDamage( void );
+		std::string	getName( void ) const;
+		int			getHitPoints( void ) const;
+		int			getEnergyPoints( void ) const;
+		int			getAttackDamage( void ) const;
 
 		//m-methods
 		void		status( void );
