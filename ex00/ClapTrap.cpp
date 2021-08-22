@@ -30,6 +30,8 @@ ClapTrap::~ClapTrap( void )
 //[=] operator overload
 ClapTrap& ClapTrap::operator= ( const ClapTrap& other )
 {
+	if (this == &other)
+		return ( *this );
 	this->m_name = other.m_name;
 	this->m_hitpoints = other.m_hitpoints;
 	this->m_energyPoints = other.m_energyPoints;
