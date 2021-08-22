@@ -24,5 +24,7 @@ int		main()
 	incognito.status();
 	bob.status();
 
+	bob.guardGate();
+
 	return ( 0 );
 }
