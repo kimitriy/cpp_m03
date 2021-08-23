@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= scavtrap
+NAME		= diamondtrap
 
 HEADER		= 	ClapTrap.hpp \
 				ScavTrap.hpp \

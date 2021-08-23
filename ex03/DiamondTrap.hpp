@@ -27,18 +27,10 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		DiamondTrap& operator= ( const DiamondTrap& other );
 
 		//m-methods
-		
-		//overrided
-		void		status( void );
-		void		attack( std::string const& target );
-		void		takeDamage( unsigned int amount );
-		void		beRepaired( unsigned int amount );
-		
-		void		guardGate( void );
-		void		highFivesGuys( void );
-		
-		//new
-		void		whoAmI( void );
+		// void		attack( std::string const& target );
+		// void		guardGate( void );
+		// void		highFivesGuys( void );
+		// void		whoAmI( void );
 };
 
 #endif

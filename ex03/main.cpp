@@ -1,13 +1,13 @@
-#include "ScavTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int		main()
 {
-	ScavTrap incognito;
-	ScavTrap joe( "Joe" );
-	ScavTrap joes_bro( joe );
-	ScavTrap bob;
+	DiamondTrap incognito;
+	DiamondTrap joe( "Joe" );
+	DiamondTrap joes_bro( joe );
+	DiamondTrap bob;
 
-	bob = ScavTrap( "Bob" );
+	bob = DiamondTrap( "Bob" );
 	incognito = bob;
 
 	incognito.status();
