@@ -1,14 +1,54 @@
 #include "ClapTrap.hpp"
 
+//private
+void	ClapTrap::msgStatus( std::string className )
+{
+	std::cout << F_R_GRN << className << " " << F_R_PRPL << getName() << F_R_GRN << " can inflict " << F_R_PRPL << getHitPoints() << F_R_GRN << " points of damage. ";
+	std::cout << "Its current quantity of energy points is " << F_R_PRPL << getEnergyPoints() << F_R_GRN << ". ";
+	std::cout << "Its current total level of damage is " << F_R_PRPL << getAttackDamage() << F_R_GRN << "." << RESET << std::endl;
+}
+
+void	ClapTrap::msgAttack( std::string className, std::string target )
+{
+	std::cout << F_R_GRN << className << " " << F_R_PRPL << getName() << F_R_GRN << " attack " << F_R_PRPL << target << F_R_GRN << ", causing ";
+	std::cout << F_R_PRPL << m_hitpoints << F_R_GRN << " points of damage!" << RESET << std::endl;
+}
+
+void	ClapTrap::msgTakeDamage( std::string className, unsigned int amount )
+{
+	std::cout << F_R_GRN << className << " " << F_R_PRPL << getName() << F_R_GRN << " got " << F_R_PRPL << amount << F_R_GRN << " points of damage. ";
+	std::cout << "Current total level of damage is " << F_R_PRPL << getAttackDamage() << F_R_GRN << "." << RESET << std::endl;
+}
+
+void	ClapTrap::msgBeRepairedN( std::string className )
+{
+	std::cout << F_R_RED << "Repairing of " << className << " " << F_R_PRPL << getName() << F_R_GRN << " is impossible due to lack of energy points." << RESET << std::endl;
+}
+
+void	ClapTrap::msgBeRepairedY( std::string className, unsigned int amount )
+{
+	std::cout << F_R_GRN << className << " " << F_R_PRPL << getName() << F_R_GRN << " has been repaired. Spent " << F_R_PRPL << amount << F_R_GRN << " energy points. ";
+	std::cout << "Current quantity of energy points is " << F_R_PRPL << getEnergyPoints() << F_R_GRN << ". ";
+	std::cout << "Current total level of damage is "<< F_R_PRPL << getAttackDamage() << F_R_GRN << "." << RESET << std::endl;
+}
+
+//public
 //default constructor
 ClapTrap::ClapTrap( void )
-	: m_name("no name"), m_hitpoints(0), m_energyPoints(0), m_attackDamage(0)
+	: m_name("no name"), m_hitpoints(10), m_energyPoints(10), m_attackDamage(0)
 {
 	const char	*className = typeid(*this).name();
 	std::cout << F_R_CYAN << "Default constructor started. " << ++className << " " << F_R_PRPL << getName() << F_R_CYAN << " constructed." << RESET << std::endl;
 }
 
 //param constructor
+ClapTrap::ClapTrap( std::string name )
+	: m_name( name ), m_hitpoints( 10 ), m_energyPoints( 10 ), m_attackDamage( 0 )
+{
+	const char	*className = typeid(*this).name();
+	std::cout << F_R_CYAN << "Parametric constructor started. " << ++className << " " << F_R_PRPL << getName() << F_R_CYAN << " constructed." << RESET << std::endl;
+}
+
 ClapTrap::ClapTrap( std::string name, int hp, int ep, int ad )
 	: m_name( name ), m_hitpoints( hp ), m_energyPoints( ep ), m_attackDamage( ad )
 {
@@ -45,7 +85,6 @@ ClapTrap& ClapTrap::operator= ( const ClapTrap& other )
 }
 
 //setter
-
 void	ClapTrap::setName( std::string name )
 {
 	m_name = name;
@@ -88,39 +127,30 @@ int		ClapTrap::getAttackDamage( void ) const
 }
 
 //m-methods
-void	ClapTrap::status( void )
-{
-	const char	*className = typeid(*this).name();
-	std::cout << F_R_GRN << ++className << " " << F_R_PRPL << getName() << F_R_GRN << " can inflict " << F_R_PRPL << getHitPoints() << F_R_GRN << " points of damage. ";
-	std::cout << "Its current quantity of energy points is " << F_R_PRPL << getEnergyPoints() << F_R_GRN << ". ";
-	std::cout << "Its current total level of damage is " << F_R_PRPL << getAttackDamage() << F_R_GRN << "." << RESET << std::endl;
-}
-
 void	ClapTrap::attack( std::string const& target )
 {
-	const char	*className = typeid(*this).name();
-	std::cout << F_R_GRN << ++className << " " << F_R_PRPL << getName() << F_R_GRN << " attack " << F_R_PRPL << target << F_R_GRN << ", causing " << F_R_PRPL << m_hitpoints << F_R_GRN << " points of damage!" << RESET << std::endl;
+	msgAttack( "ClapTrap", target );
 }
 
 void	ClapTrap::takeDamage( unsigned int amount )
 {
 	setAttackDamage( getAttackDamage() + amount );
-	const char	*className = typeid(*this).name();
-	std::cout << F_R_GRN << ++className << " " << F_R_PRPL << getName() << F_R_GRN << " got " << F_R_PRPL << amount << F_R_GRN << " points of damage. ";
-	std::cout << "Current total level of damage is " << F_R_PRPL << getAttackDamage() << F_R_GRN << "." << RESET << std::endl;
+	msgTakeDamage( "ClapTrap", getAttackDamage() );
 }
 
 void	ClapTrap::beRepaired( unsigned int amount )
 {
-	const char	*className = typeid(*this).name();
 	if ( getEnergyPoints() - amount < 0 )
-		std::cout << F_R_RED << "Repairing of " << ++className << " " << F_R_PRPL << getName() << F_R_GRN << " is impossible due to lack of energy points." << RESET << std::endl;
+		msgBeRepairedN( "ClapTrap" );
 	else
 	{
 		setEnergyPoints( getEnergyPoints() - amount );
 		setAttackDamage( getAttackDamage() - amount );
-		std::cout << F_R_GRN << ++className << " " << F_R_PRPL << getName() << F_R_GRN << " has been repaired. Spent " << F_R_PRPL << amount << F_R_GRN << " energy points. ";
-		std::cout << "Current quantity of energy points is " << F_R_PRPL << getEnergyPoints() << F_R_GRN << ". ";
-		std::cout << "Current total level of damage is "<< F_R_PRPL << getAttackDamage() << F_R_GRN << "." << RESET << std::endl;
+		msgBeRepairedY( "ClapTrap", amount );
 	}
+}
+
+void	ClapTrap::status( void )
+{
+	msgStatus( "ClapTrap" );
 }
