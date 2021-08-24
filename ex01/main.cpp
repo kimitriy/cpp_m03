@@ -2,29 +2,44 @@
 
 int		main()
 {
-	ScavTrap incognito;
-	ScavTrap joe( "Joe" );
-	ScavTrap joes_bro( joe );
-	ScavTrap bob;
+	// ClapTrap a;
+	// a.attack("Jack");
+	// a.takeDamage(5);
+	// a.beRepaired(5);
+	// a.setName("Mini");
+	// a.attack("Jack");
+	// a.takeDamage(5);
+	// a.beRepaired(5);
 
-	bob = ScavTrap( "Bob" );
-	incognito = bob;
+	// ClapTrap b("one");
+	// b.attack("Robin");
+	// b.takeDamage(10);
+	// b.beRepaired(10);
 
-	incognito.status();
-	joe.status();
-	joes_bro.status();
-	bob.status();
+	// ClapTrap c(b);
+	// c.attack("Derek");
+	// c.takeDamage(10);
+	// c.beRepaired(10);
 
-	joe.attack( bob.getName() );
-	bob.takeDamage( joe.getHitPoints() );
-	joes_bro.attack ( bob.getName() );
-	bob.takeDamage( joe.getHitPoints() );
-	bob.beRepaired( 2 );
+
+	ScavTrap d;
+	d.attack("Lulu");
+	d.takeDamage(5);
+	d.beRepaired(5);
 	
-	incognito.status();
-	bob.status();
-
-	bob.guardGate();
+	ScavTrap e("Lilu");
+	e.attack("Jack");
+	e.takeDamage(5);
+	e.beRepaired(5);
+	e.setName("lalala");
+	e.guardGate();
+	
+	ScavTrap f(e);
+	f.setName("minimini");
+	f.attack("Jack");
+	f.takeDamage(15);
+	f.beRepaired(45);
+	f.guardGate();
 
 	return ( 0 );
 }

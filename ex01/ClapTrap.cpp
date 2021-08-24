@@ -22,7 +22,7 @@ void	ClapTrap::msgTakeDamage( std::string className, unsigned int amount )
 
 void	ClapTrap::msgBeRepairedN( std::string className )
 {
-	std::cout << F_R_RED << "Repairing of " << className << " " << F_R_PRPL << getName() << F_R_GRN << " is impossible due to lack of energy points." << RESET << std::endl;
+	std::cout << F_R_RED << "Repairing of " << className << " " << F_R_PRPL << getName() << F_R_RED << " is impossible due to lack of energy points." << RESET << std::endl;
 }
 
 void	ClapTrap::msgBeRepairedY( std::string className, unsigned int amount )
@@ -140,12 +140,12 @@ void	ClapTrap::takeDamage( unsigned int amount )
 
 void	ClapTrap::beRepaired( unsigned int amount )
 {
-	if ( getEnergyPoints() - amount < 0 )
+	if ( this->getEnergyPoints() - static_cast<int>( amount ) < 0 )
 		msgBeRepairedN( "ClapTrap" );
 	else
 	{
-		setEnergyPoints( getEnergyPoints() - amount );
-		setAttackDamage( getAttackDamage() - amount );
+		this->setEnergyPoints( this->getEnergyPoints() - amount );
+		this->setAttackDamage( this->getAttackDamage() - amount );
 		msgBeRepairedY( "ClapTrap", amount );
 	}
 }
