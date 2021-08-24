@@ -5,7 +5,8 @@
 
 class ScavTrap : public ClapTrap
 {
-	private:
+	protected:
+		void	msgGuardGate( std::string className );
 
 	public:
 		//default constructor
@@ -24,7 +25,12 @@ class ScavTrap : public ClapTrap
 		ScavTrap& operator= ( const ScavTrap& other );
 
 		//m-methods
+		void		attack( std::string const& target );
+		void		takeDamage( unsigned int amount );
+		void		beRepaired( unsigned int amount );
 		void		guardGate( void );
+		void		status( void );
+	
 };
 
 #endif
