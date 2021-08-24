@@ -36,17 +36,23 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		std::string	m_name;
 		int			m_hitpoints;
 		int			m_energyPoints;
 		int			m_attackDamage;
+		void		msgStatus( std::string className );
+		void		msgAttack( std::string className, std::string target );
+		void		msgTakeDamage( std::string className, unsigned int amount );
+		void		msgBeRepairedN( std::string className );
+		void		msgBeRepairedY( std::string className, unsigned int amount );
 
 	public:
 		//default constructor
 		ClapTrap( void );
 
 		//param constructor
+		ClapTrap( std::string name );
 		ClapTrap( std::string name, int hp, int ep, int ad );
 
 		//copy constructor
@@ -71,11 +77,13 @@ class ClapTrap
 		int			getAttackDamage( void ) const;
 
 		//m-methods
-		void		status( void );
 		void		attack( std::string const& target );
 		void		takeDamage( unsigned int amount );
 		void		beRepaired( unsigned int amount );
-
+		void		status( void );
+	
+	
+		
 };
 
 #endif
