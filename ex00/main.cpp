@@ -2,27 +2,26 @@
 
 int		main()
 {
-	ClapTrap incognito;
-	ClapTrap joe( "Joe", 2, 10, 0 );
-	ClapTrap joes_bro( joe );
-	ClapTrap bob;
+	ClapTrap a;
+	a.attack("Jack");
+	a.takeDamage(5);
+	a.beRepaired(5);
+	a.setName("Mini");
+	a.attack("Jack");
+	a.takeDamage(5);
+	a.beRepaired(5);
 
-	bob = ClapTrap( "Bob", 2, 10, 0);
-	incognito = bob;
+	ClapTrap b("one");
+	b.attack("Robin");
+	b.takeDamage(10);
+	b.beRepaired(10);
 
-	incognito.status();
-	joe.status();
-	joes_bro.status();
-	bob.status();
-
-	joe.attack( bob.getName() );
-	bob.takeDamage( joe.getHitPoints() );
-	joes_bro.attack ( bob.getName() );
-	bob.takeDamage( joe.getHitPoints() );
-	bob.beRepaired( 2 );
-	
-	incognito.status();
-	bob.status();
+	ClapTrap c(b);
+	c.status();
+	c.attack("Derek");
+	c.takeDamage(10);
+	c.status();
+	c.beRepaired(10);
 
 	return ( 0 );
 }
