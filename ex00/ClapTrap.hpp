@@ -36,7 +36,7 @@
 
 class ClapTrap
 {
-	protected:
+	private:
 		std::string	m_name;
 		int			m_hitpoints;
 		int			m_energyPoints;
@@ -53,7 +53,7 @@ class ClapTrap
 
 		//param constructor
 		ClapTrap( std::string name );
-		ClapTrap( std::string name, int hp, int ep, int ad );
+		// ClapTrap( std::string name, int hp, int ep, int ad );
 
 		//copy constructor
 		ClapTrap( const ClapTrap& oher );

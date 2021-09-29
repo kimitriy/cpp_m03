@@ -49,12 +49,12 @@ ClapTrap::ClapTrap( std::string name )
 	std::cout << F_R_CYAN << "Parametric constructor started. " << ++className << " " << F_R_PRPL << getName() << F_R_CYAN << " constructed." << RESET << std::endl;
 }
 
-ClapTrap::ClapTrap( std::string name, int hp, int ep, int ad )
-	: m_name( name ), m_hitpoints( hp ), m_energyPoints( ep ), m_attackDamage( ad )
-{
-	const char	*className = typeid(*this).name();
-	std::cout << F_R_CYAN << "Parametric constructor started. " << ++className << " " << F_R_PRPL << getName() << F_R_CYAN << " constructed." << RESET << std::endl;
-}
+// ClapTrap::ClapTrap( std::string name, int hp, int ep, int ad )
+// 	: m_name( name ), m_hitpoints( hp ), m_energyPoints( ep ), m_attackDamage( ad )
+// {
+// 	const char	*className = typeid(*this).name();
+// 	std::cout << F_R_CYAN << "Parametric constructor started. " << ++className << " " << F_R_PRPL << getName() << F_R_CYAN << " constructed." << RESET << std::endl;
+// }
 
 //copy constructor
 ClapTrap::ClapTrap( const ClapTrap& other )
