@@ -19,10 +19,7 @@ class FragTrap : public ClapTrap
 		FragTrap( const FragTrap& oher );
 
 		//destructor
-		~FragTrap( void );
-
-		//[=] operator overload
-		FragTrap& operator= ( const FragTrap& other );
+		virtual	~FragTrap( void );
 
 		//m-methods
 		void		attack( std::string const& target );
