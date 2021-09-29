@@ -23,19 +23,19 @@ int		main()
 
 
 	ScavTrap d;
-	d.attack("Lulu");
+	d.attack("Someone");
 	d.takeDamage(5);
 	d.beRepaired(5);
 	
-	ScavTrap e("Lilu");
+	ScavTrap e("Bob");
 	e.attack("Jack");
 	e.takeDamage(5);
 	e.beRepaired(5);
-	e.setName("lalala");
+	e.setName("John");
 	e.guardGate();
 	
 	ScavTrap f(e);
-	f.setName("minimini");
+	f.setName("Maria");
 	f.attack("Jack");
 	f.takeDamage(15);
 	f.beRepaired(45);

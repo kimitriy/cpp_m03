@@ -19,10 +19,7 @@ class ScavTrap : public ClapTrap
 		ScavTrap( const ScavTrap& oher );
 
 		//destructor
-		~ScavTrap( void );
-
-		//[=] operator overload
-		ScavTrap& operator= ( const ScavTrap& other );
+		virtual	~ScavTrap( void );
 
 		//m-methods
 		void		attack( std::string const& target );
