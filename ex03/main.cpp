@@ -2,24 +2,24 @@
 
 int		main()
 {
-	ClapTrap a;
-	a.attack("Jack");
-	a.takeDamage(5);
-	a.beRepaired(5);
-	a.setName("Mini");
-	a.attack("Jack");
-	a.takeDamage(5);
-	a.beRepaired(5);
+	// ClapTrap a;
+	// a.attack("Jack");
+	// a.takeDamage(5);
+	// a.beRepaired(5);
+	// a.setName("Mini");
+	// a.attack("Jack");
+	// a.takeDamage(5);
+	// a.beRepaired(5);
 
-	ClapTrap b("one");
-	b.attack("Robin");
-	b.takeDamage(10);
-	b.beRepaired(10);
+	// ClapTrap b("one");
+	// b.attack("Robin");
+	// b.takeDamage(10);
+	// b.beRepaired(10);
 
-	ClapTrap c(b);
-	c.attack("Derek");
-	c.takeDamage(10);
-	c.beRepaired(10);
+	// ClapTrap c(b);
+	// c.attack("Derek");
+	// c.takeDamage(10);
+	// c.beRepaired(10);
 
 
 	// ScavTrap d;
@@ -69,35 +69,39 @@ int		main()
 	// z->highFivesGuys();
 	// delete z;
 
+	std::cout << "g" << std::endl;
+	DiamondTrap g;
+	g.takeDamage(5);
+	g.attack("Jack");
+	g.beRepaired(5);
+	g.highFivesGuys();
+	g.whoAmI();
 
-	// DiamondTrap g;
-	// g.takeDamage(5);
-	// g.attack("Jack");
-	// g.beRepaired(5);
-	// g.highFivesGuys();
-	// g.whoAmI();
+	std::cout << "l" << std::endl;
+	DiamondTrap l("Black");
+	l.attack("Jack");
+	l.takeDamage(5);
+	l.beRepaired(5);
+	l.highFivesGuys();
+	l.whoAmI();
 
-	// DiamondTrap l("Black");
-	// l.attack("Jack");
-	// l.takeDamage(5);
-	// l.beRepaired(5);
-	// l.highFivesGuys();
-	// l.whoAmI();
+	std::cout << "m" << std::endl;
+	DiamondTrap m(l);
+	m.attack("Jack");
+	m.takeDamage(15);
+	m.beRepaired(45);
+	m.highFivesGuys();
+	m.whoAmI();
 
-	// FragTrap m(l);
-	// m.attack("Jack");
-	// m.takeDamage(15);
-	// m.beRepaired(45);
-	// m.highFivesGuys();
-	// m.whoAmI();
-
-	// DiamondTrap *z = new DiamondTrap("new_lala");
-	// z->attack("Jack");
-	// z->takeDamage(15);
-	// z->beRepaired(45);
-	// z->highFivesGuys();
-	// z->whoAmI();
-	// delete z;
+	std::cout << "z" << std::endl;
+	DiamondTrap *z = new DiamondTrap("new_lala");
+	z->attack("Jack");
+	z->takeDamage(15);
+	z->beRepaired(45);
+	z->highFivesGuys();
+	z->whoAmI();
+	z->status();
+	delete z;
 
 	return ( 0 );
 }

@@ -2,7 +2,7 @@
 
 //default constructor
 DiamondTrap::DiamondTrap( void )
-	: ClapTrap( "noname_clap_name" ), ScavTrap( 's' ), FragTrap( 's' )
+	: ClapTrap( "noname_clap_name" ), ScavTrap( 's' ), FragTrap( 's' ), m_name( "noname" )
 {
 	const char	*className = typeid(*this).name();
 	++className;
@@ -22,7 +22,6 @@ DiamondTrap::DiamondTrap( std::string name )
 DiamondTrap::DiamondTrap( const DiamondTrap& other )
 {
 	*this = other;
-	
 	const char	*className = typeid(*this).name();
 	++className;
 	std::cout << F_R_CYAN << "Copy constructor started. " << ++className << " " << F_R_PRPL << getName() << F_R_CYAN << " constructed." << RESET << std::endl;
@@ -37,17 +36,10 @@ DiamondTrap::~DiamondTrap( void )
 	std::cout << F_R_YLLW << "Destructor started. " << ++className << " " << F_R_PRPL << getName() << F_R_YLLW << " destructed." << RESET << std::endl;
 }
 
-//[=] operator overload
-DiamondTrap& DiamondTrap::operator= ( const DiamondTrap& other )
+//getter
+std::string	DiamondTrap::getName( void ) const
 {
-	if (this == &other)
-		return ( *this );
-	this->setName( other.getName() );
-	this->setHitPoints( other.getHitPoints() );
-	this->setEnergyPoints( other.getEnergyPoints() );
-	this->setAttackDamage( other.getAttackDamage() );
-
-	return ( *this );
+	return ( m_name );
 }
 
 //m-methods
@@ -86,7 +78,7 @@ void	DiamondTrap::highFivesGuys( void )
 
 void	DiamondTrap::whoAmI( void )
 {
-	std::cout << F_R_GRN << "I am DiamondTrap, and I have two names. My DiamondTrap name is " << F_R_PRPL << m_name << F_R_GRN << ", and my ClapTrap name is " << F_R_PRPL << getName() << F_R_GRN << "." << RESET << std::endl;
+	std::cout << F_R_GRN << "I am DiamondTrap, and I have two names. My DiamondTrap name is " << F_R_PRPL << getName() << F_R_GRN << ", and my ClapTrap name is " << F_R_PRPL << ClapTrap::getName() << F_R_GRN << "." << RESET << std::endl;
 }
 
 void	DiamondTrap::status( void )

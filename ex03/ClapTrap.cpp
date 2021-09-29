@@ -35,7 +35,7 @@ void	ClapTrap::msgBeRepairedY( std::string className, unsigned int amount )
 //public
 //default constructor
 ClapTrap::ClapTrap( void )
-	: m_name("no name"), m_hitpoints(10), m_energyPoints(10), m_attackDamage(0)
+	: m_name("noname"), m_hitpoints(10), m_energyPoints(10), m_attackDamage(0)
 {
 	const char	*className = typeid(*this).name();
 	std::cout << F_R_CYAN << "Default constructor started. " << ++className << " " << F_R_PRPL << getName() << F_R_CYAN << " constructed." << RESET << std::endl;
@@ -74,12 +74,13 @@ ClapTrap::~ClapTrap( void )
 //[=] operator overload
 ClapTrap& ClapTrap::operator= ( const ClapTrap& other )
 {
+	// std::cout << "[=] operator started" << std::endl;
 	if (this == &other)
 		return ( *this );
-	this->m_name = other.m_name;
-	this->m_hitpoints = other.m_hitpoints;
-	this->m_energyPoints = other.m_energyPoints;
-	this->m_attackDamage = other.m_attackDamage;
+	this->m_name = other.getName();
+	this->m_hitpoints = other.getHitPoints();
+	this->m_energyPoints = other.getEnergyPoints();
+	this->m_attackDamage = other.getAttackDamage();
 
 	return ( *this );
 }

@@ -21,10 +21,10 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		DiamondTrap( const DiamondTrap& oher );
 
 		//destructor
-		~DiamondTrap( void );
+		virtual	~DiamondTrap( void );
 
-		//[=] operator overload
-		DiamondTrap& operator= ( const DiamondTrap& other );
+		//getter
+		std::string	getName( void ) const;
 
 		//m-methods
 		void		attack( std::string const& target );

@@ -59,7 +59,7 @@ class ClapTrap
 		ClapTrap( const ClapTrap& oher );
 
 		//destructor
-		~ClapTrap( void );
+		virtual	~ClapTrap( void );
 
 		//[=] operator overload
 		ClapTrap& operator= ( const ClapTrap& other );

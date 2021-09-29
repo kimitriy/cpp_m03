@@ -49,19 +49,6 @@ FragTrap::~FragTrap( void )
 	std::cout << F_R_YLLW << "Destructor started. " << ++className << " " << F_R_PRPL << getName() << F_R_YLLW << " destructed." << RESET << std::endl;
 }
 
-//[=] operator overload
-FragTrap& FragTrap::operator= ( const FragTrap& other )
-{
-	if (this == &other)
-		return ( *this );
-	this->setName( other.getName() );
-	this->setHitPoints( other.getHitPoints() );
-	this->setEnergyPoints( other.getEnergyPoints() );
-	this->setAttackDamage( other.getAttackDamage() );
-
-	return ( *this );
-}
-
 //m-methods
 void	FragTrap::attack( std::string const& target )
 {
